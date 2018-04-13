@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>@yield('title','sample')</title>
+</head>
+<body>
+@yield('content')
+@yield('footer')
+</body>
+</html>
