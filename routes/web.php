@@ -16,6 +16,9 @@
 // });
 
 Route::get('/', 'SiteController@index');
-
 Route::get('/about', 'SiteController@about');
 Route::get('/contact', 'SiteController@contact');
+
+Route::get('/articles','ArticlesController@index');
+Route::get('/articles/create','ArticlesController@create');
+Route::get('/articles/{id}','ArticlesController@show');
