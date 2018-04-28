@@ -6,19 +6,12 @@
     	
     {!! Form::close() !!}
 
-    @if($errors->any())
-
-    <ul class="list-group">
-    	@foreach($errors->all() as $error)
-    		<li class="list-group-item list-group-item-danger">{{ $error }}</li>
-    	@endforeach
-    </ul>
-
-    @endif
+    @include('errors.error')
 
 @section('footer')
-    <link rel='stylesheet' href="/css/bootstrap.min.css" type='text/css' media='all'/>
-   <!--  <link rel='stylesheet' href="/css/all.css" type='text/css' media='all'/> -->
-
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+   <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
 @stop
 <!-- 下载 laravelcollective/html   (https://www.codecasts.com/blog/post/programming-with-laravel-5-laravel-forms-input)-->

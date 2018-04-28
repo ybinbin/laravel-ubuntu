@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 class Article extends Model
 {
-    protected $fillable = ['title','content','published_at','intro'];
+    protected $fillable = ['title','content','published_at','intro','user_id'];
 
     protected $dates = ['published_at'];  //作为carbon对象处理  可以使用diffForHumans
 
@@ -28,5 +28,11 @@ class Article extends Model
     public function scopePublished($query)
     {
     	$query->where('published_at','<=',Carbon::now());
+    }
+
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');  //$article->user
     }
 }

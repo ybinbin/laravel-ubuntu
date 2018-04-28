@@ -10,7 +10,7 @@ class SiteController extends Controller
 {
     public function index()
     {
-        echo 'Hello   World ';
+        return view('welcome');
     }
 
     public function about()

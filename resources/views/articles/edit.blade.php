@@ -1,20 +1,15 @@
 @extends('app')
 @section('content')
+	<div class="col-md-8 col-md-offset-8">
+		
     <h1>{{ $article->title }}</h1>
     {!! Form::model($article,['method'=>'PATCH','url'=>'/articles/'.$article->id]) !!}
     	@include('articles.form')
     	
     {!! Form::close() !!}
 
-    @if($errors->any())
-
-    <ul class="list-group">
-    	@foreach($errors->all() as $error)
-    		<li class="list-group-item list-group-item-danger">{{ $error }}</li>
-    	@endforeach
-    </ul>
-
-    @endif
+    @include('errors.error')
+	</div>
 
 @section('footer')
     <link rel='stylesheet' href="/css/bootstrap.min.css" type='text/css' media='all'/>

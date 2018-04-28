@@ -15,8 +15,9 @@ class ArticlesController extends Controller
     public function index()
     {
     	// $articles = Article::all();
+        // dd(Article::find(3)->user->name);
     	$articles = Article::latest()->published()->get();
-
+        // dd(\Auth::user());
     	return view('articles.index',compact('articles'));
     }
 
@@ -39,7 +40,7 @@ class ArticlesController extends Controller
     	return view('articles.create');
     }
 
-    public function store(Request $request)
+    public function store(Requests\CreateArticleRequest $request)
     {
     	// dd($request->all());
     	//接收post过来的数据
@@ -64,8 +65,13 @@ class ArticlesController extends Controller
     	// Article::create($input);
 
     	//  2=========
-    	Article::create($request->all());
 
+        /*登录状态下才能添加数据*/
+        echo \Auth::user()->id;
+        $arr = array_merge(['user_id'=>\Auth::user()->id],$request->all());
+        print_r($arr);
+    	$re = Article::create($arr);
+        dd($re);
     	return redirect('/articles');
     }
 
@@ -73,7 +79,6 @@ class ArticlesController extends Controller
     public function edit($id)
     {
     	$article = Article::findOrFail($id);
-
     	return view('articles.edit',compact('article'));
     }
 
