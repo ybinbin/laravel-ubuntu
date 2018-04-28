@@ -67,11 +67,8 @@ class ArticlesController extends Controller
     	//  2=========
 
         /*登录状态下才能添加数据*/
-        echo \Auth::user()->id;
         $arr = array_merge(['user_id'=>\Auth::user()->id],$request->all());
-        print_r($arr);
     	$re = Article::create($arr);
-        dd($re);
     	return redirect('/articles');
     }
 
