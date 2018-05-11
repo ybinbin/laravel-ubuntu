@@ -32,4 +32,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Article');  //$user->articles()   可以取到该user下的所有文章
     }
+
+    public function isAdmin()
+    {
+        return $this->name === 'ybinbin';  //如果is_admin字段为Y就返回TRUE，否则返回false
+    }
 }
