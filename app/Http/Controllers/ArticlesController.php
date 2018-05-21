@@ -8,12 +8,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use App\Events\UserSignUp;
 
 
 class ArticlesController extends Controller
 {
     public function index()
     {
+        /*//监听
+        $user = \App\User::find(1);
+        event(new \App\Events\UserSignUp($user));*/
+        
     	// $articles = Article::all();
         // dd(Article::find(3)->user->name);
     	$articles = Article::latest()->published()->get();

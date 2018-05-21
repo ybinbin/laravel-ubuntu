@@ -45,3 +45,8 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 		return 'admin only';
 	});
 });
+
+// Route::get('/',function(){
+// 	$user = \App\User::find(1);
+// 	event(new \App\Events\UserSignUp($user));
+// });
